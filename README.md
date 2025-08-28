@@ -43,8 +43,23 @@ Após o treinamento e a avaliação, o modelo obteve as seguintes métricas:
 * **Erro Absoluto Médio (MAE):** 8.4485
     * Em média, a previsão do modelo tem um erro de **$8.45 kg/ha$** para mais ou para menos.
 
+## 🧠 Metodologia de Machine Learning
+1.  **Pré-processamento**: As variáveis categóricas (`Tipo_solo`, `Cultura`, `Estagio_cultura`) foram convertidas em um formato numérico usando **One-Hot Encoding**.
+2.  **Divisão dos Dados**: O dataset foi dividido em 80% para treino e 20% para teste.
+3.  **Modelagem**: Foram testados dois modelos: uma **Regressão Linear** para uma baseline e um **Random Forest Regressor** para capturar relações mais complexas nos dados.
+4.  **Avaliação**: A performance dos modelos foi medida usando as métricas **$R^2$** e **MAE**.
+
+## ✨ Resultados do Modelo
+A tabela abaixo compara o desempenho dos modelos testados:
+
+| Modelo | R-quadrado ($R^2$) | Erro Absoluto Médio (MAE) |
+| :--- | :---: | :---: |
+| Regressão Linear | 0.5055 | 8.4485 |
+| **Random Forest** | **0.7088** | **7.0270** |
+
+O **Random Forest** demonstrou um desempenho superior, conseguindo explicar mais da variabilidade da variável alvo e reduzindo o erro médio de previsão. O modelo final é robusto e demonstra que as variáveis ambientais e da cultura são fortes preditores para a otimização da aplicação de nitrogênio.
+
 ## ⏭️ Próximos Passos
 O projeto pode ser aprimorado com as seguintes ações:
-* Testar modelos mais complexos, como **Random Forest Regressor** ou **Gradient Boosting**.
-* Realizar um ajuste de hiperparâmetros para otimizar a performance do modelo atual.
+* Otimizar o modelo Random Forest com um ajuste de hiperparâmetros (como `GridSearchCV`).
 * Explorar a possibilidade de usar dados mais complexos, como dados de satélite ou séries temporais.
